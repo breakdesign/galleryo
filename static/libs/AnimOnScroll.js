@@ -96,7 +96,7 @@
 			imagesLoaded( this.el, function() {
 				
 				// initialize masonry
-				new Masonry( self.el, {
+				let masonry = new Masonry( self.el, {
 					itemSelector: 'li',
 					transitionDuration : 0
 				} );

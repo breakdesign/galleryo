@@ -113,13 +113,31 @@
                 <img
                   :src="item.urls.small"
                   :alt="item.alt_description"
-                  :height="index % 3 ? 196 : 259"
                   class="bd-c-popular__image"
-                  width="147"
                 />
                 <span class="mdi mdi-thumb-up">{{ item.likes }}</span>
               </a>
             </li>
+            <!-- <li class="bd-c-latest__items h259">
+              <a href="/singlepage/dw96lVwMXJg">
+                <img
+                  src="https://images.unsplash.com/photo-1523810632669-22fb8c6008f0?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExMjIwNn0"
+                  alt="woman sitting on the rock with waterfall in distance during daytime"
+                  class="bd-c-popular__image"
+                />
+                <span class="mdi mdi-thumb-up">138</span>
+              </a>
+            </li>
+            <li class="bd-c-latest__items h196">
+              <a href="/singlepage/9nlz8_mZKfE">
+                <img
+                  src="https://images.unsplash.com/photo-1546556402-1a63e35b57d9?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExMjIwNn0"
+                  alt="clear glass mug with black beverage"
+                  class="bd-c-popular__image"
+                />
+                <span class="mdi mdi-thumb-up">22</span>
+              </a>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -131,6 +149,19 @@
 import { mapState } from 'vuex'
 
 export default {
+  head: {
+    script: [
+      {
+        src: '/libs/jquery.min.js',
+        body: true
+      },
+      { src: '/libs/masonry.pkgd.min.js', body: true },
+      { src: '/libs/imagesloaded.js', body: true },
+      { src: '/libs/classie.js', body: true },
+      { src: '/libs/AnimOnScroll.js', body: true },
+      { src: '/libs/custom.js', body: true }
+    ]
+  },
   data() {
     return {
       search: '',
@@ -226,6 +257,7 @@ export default {
 
 .bd-c-popular__image {
   border-radius: 8px;
+  max-width: 100%;
 }
 
 .bd-c-popular__items:first-child {
@@ -251,9 +283,12 @@ export default {
 
 .bd-c-latest__items {
   position: relative;
-  display: inline-block;
-  width: 151px;
-  margin: 0 1rem 1rem 0;
+  width: 50%;
+  display: block;
+  float: left;
+  padding: 7px;
+  /* width: 151px;
+  margin: 0 1rem 1rem 0; */
 }
 
 .bd-c-category__list {
@@ -278,13 +313,23 @@ export default {
   padding: 10px 15px;
 }
 
+.bd-c-latest__list::after {
+  content: '';
+  display: table;
+  clear: both;
+}
 .bd-c-latest__list {
   list-style: none;
   padding: 0;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 1400px;
+  max-height: 1400px; */
+}
+
+.bd-c-latest__items a {
+  display: block;
+  max-width: 100%;
 }
 
 .bd-c-popular {

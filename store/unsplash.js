@@ -27,7 +27,7 @@ export const mutations = {
 export const actions = {
   async getDataPopular({ commit }) {
     this.$axios.setToken(
-      'Client-ID 0bf353428d17ca150dfe3ff96d5bd4cda9899223bb962aa06df6cbf9dfa99d06'
+      'Client-ID 7fbf449b60460d94fbb2ee2b3e6e546096c5a1d1b920689ed6f312d6c6fc42af'
     )
     const dataFromAPI = await this.$axios.get(
       'photos/random?featured&orientation=portrait&count=5&w=400&h=600'
@@ -36,7 +36,7 @@ export const actions = {
   },
   async getDataPopularAll({ commit }) {
     this.$axios.setToken(
-      'Client-ID 0bf353428d17ca150dfe3ff96d5bd4cda9899223bb962aa06df6cbf9dfa99d06'
+      'Client-ID 7fbf449b60460d94fbb2ee2b3e6e546096c5a1d1b920689ed6f312d6c6fc42af'
     )
     const dataFromAPI = await this.$axios.get(
       'photos/random?featured&orientation=portrait&count=20'
@@ -45,16 +45,17 @@ export const actions = {
   },
   async getDataLatest({ commit }) {
     this.$axios.setToken(
-      'Client-ID 0bf353428d17ca150dfe3ff96d5bd4cda9899223bb962aa06df6cbf9dfa99d06'
+      'Client-ID 7fbf449b60460d94fbb2ee2b3e6e546096c5a1d1b920689ed6f312d6c6fc42af'
     )
-    const dataFromAPI = await this.$axios.get(
-      'photos/random?featured&orientation=portrait&count=10'
-    )
+    // const dataFromAPI = await this.$axios.get(
+    //   'photos/random?featured&orientation=portrait&count=10'
+    // )
+    const dataFromAPI = await this.$axios.get('photos')
     commit('setDataLatest', dataFromAPI.data)
   },
   async getDataCategory({ commit }, data) {
     this.$axios.setToken(
-      'Client-ID 0bf353428d17ca150dfe3ff96d5bd4cda9899223bb962aa06df6cbf9dfa99d06'
+      'Client-ID 7fbf449b60460d94fbb2ee2b3e6e546096c5a1d1b920689ed6f312d6c6fc42af'
     )
     const dataFromAPI = await this.$axios.get(
       `search/photos?query=${data}&orientation=portrait&per_page=10`
@@ -63,7 +64,7 @@ export const actions = {
   },
   async getDataSearch({ commit }, data) {
     this.$axios.setToken(
-      'Client-ID 0bf353428d17ca150dfe3ff96d5bd4cda9899223bb962aa06df6cbf9dfa99d06'
+      'Client-ID 7fbf449b60460d94fbb2ee2b3e6e546096c5a1d1b920689ed6f312d6c6fc42af'
     )
     const dataFromAPI = await this.$axios.get(
       `search/photos?query=${data}&orientation=portrait&per_page=20`
@@ -72,7 +73,7 @@ export const actions = {
   },
   getDataSingle({ commit }, data) {
     this.$axios.setToken(
-      'Client-ID 0bf353428d17ca150dfe3ff96d5bd4cda9899223bb962aa06df6cbf9dfa99d06'
+      'Client-ID 7fbf449b60460d94fbb2ee2b3e6e546096c5a1d1b920689ed6f312d6c6fc42af'
     )
     // await this.$axios
     //   .get(`photos/${data}`)
